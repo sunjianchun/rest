@@ -83,7 +83,7 @@ DATABASES = {
 	'PORT': '3306',
 	'HOST': '127.0.0.1',
 	'USER': 'root',
-	'PASSWORD': 'ChunXiao@&150426',
+	'PASSWORD': '',
 	'TEST': {
 		#'MIRROR': 'default',
         	'ENGINE': 'django.db.backends.mysql',
@@ -91,7 +91,7 @@ DATABASES = {
 		'PORT': '3306',
 		'HOST': '127.0.0.1',
 		'USER': 'root',
-		'PASSWORD': 'ChunXiao@&150426',
+		'PASSWORD': '',
 	}
     }
 }
