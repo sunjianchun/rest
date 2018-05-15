@@ -17,6 +17,24 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework.reverse import reverse
 from rest_framework.decorators import api_view
+from django.http import HttpResponse
+
+from django.contrib.auth import authenticate, login
+
+@csrf_exempt
+def my_login(request):
+	if request.method == 'GET':
+		return HttpResponse("<form method=\"post\">姓名：<input type=\"text\" name=\"username\" id=\"username\"><br/>密码：<input type=\"password\" id=\"password\" name=\"password\"><input type=\"submit\" value=\"submit\"></form>")
+	else:
+		username = request.POST['username']
+		password = request.POST['password']
+		print username, password
+		user = authenticate(request, username=username, password=password)
+		if user is not None:
+			login(request, user)
+			return HttpResponse('login ok')
+		else:
+			return HttpResponse('login error')
 
 
 @api_view(['GET'])

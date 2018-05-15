@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'snippets.middleware.login.LoginMiddleware',
 ]
 
 ROOT_URLCONF = 'rest.urls'
@@ -82,7 +83,16 @@ DATABASES = {
 	'PORT': '3306',
 	'HOST': '127.0.0.1',
 	'USER': 'root',
-	'PASSWORD': '',
+	'PASSWORD': 'ChunXiao@&150426',
+	'TEST': {
+		#'MIRROR': 'default',
+        	'ENGINE': 'django.db.backends.mysql',
+        	'NAME': 'test_rest_by_sjc',
+		'PORT': '3306',
+		'HOST': '127.0.0.1',
+		'USER': 'root',
+		'PASSWORD': 'ChunXiao@&150426',
+	}
     }
 }
 
