@@ -274,6 +274,7 @@ class UserDetailByGenerics(generics.RetrieveUpdateDestroyAPIView):
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.decorators import list_route
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = User.objects.all()
@@ -285,6 +286,10 @@ class SnippetViewSet(viewsets.ModelViewSet):
 	queryset = Snippet.objects.all()
 	serializer_class = SnippetSerializerByHyperlinked
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
+
+	@list_route(methods=['GET'], url_path='aaa', permission_classes = (permissions.IsAuthenticatedOrReadOnly, ))
+	def test_list_route(self, request):
+		return Response({'succss':True,'msg':'操作成功'})
 
 	@action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
 	def highlight(self, request, *arg, **kwargs):
